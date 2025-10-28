@@ -1,1 +1,52 @@
 /*  your css code here. If applicable */
+  *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: white;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(92, 90, 90);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 50px;
+    }
+   
+    .circle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 3rem;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(80, 61, 148);
+        border-radius: 50px;
+        gap: 50px;
+        filter: drop-shadow(1px 3px 29px rgb(44, 43, 43));
+
+    }
+    .circle-container{
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+
+    }
+    
+    button{
+        width: 100px;
+        height: 30px;
+        border-radius: 50px;
+        border: none;
+        background-color: rgb(175, 175, 175);
+    }
+     .active{
+        background-color: red;
+        transition-property: all;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in-out;
+    }
