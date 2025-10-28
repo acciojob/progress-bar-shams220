@@ -1,25 +1,35 @@
-//your JS code here. If required.
- const nxtBtn=document.querySelector('#next');
-    const prevBtn = document.querySelector('#prev')
+const nxtBtn = document.querySelector('#next');
+const prevBtn = document.querySelector('#prev');
+const circles = document.querySelectorAll('.circle');
 
-    const circles = document.querySelectorAll('.circle');
+let activeIndex = 0;
 
-   let circleIndex = 0;
-   const updateActiveCircle=()=>{
-    circles.forEach((c,index)=>{
-        c.classList.toggle('active',index === circleIndex);
-    })
-   }
-nxtBtn.addEventListener('click',()=>{
-    if(circleIndex < circles.length-1){
-        circleIndex++;
-        updateActiveCircle();
-    }
-})
+// Disable prev initially
+prevBtn.disabled = true;
 
-prevBtn.addEventListener('click',()=>{
-    if(circleIndex>0){
-        circleIndex--;
-        updateActiveCircle();
-    }
-})
+const updateUI = () => {
+  circles.forEach((c, i) => {
+    c.classList.toggle('active', i === activeIndex);
+  });
+
+  // disable/enable buttons
+  prevBtn.disabled = activeIndex === 0;
+  nxtBtn.disabled = activeIndex === circles.length - 1;
+};
+
+nxtBtn.addEventListener('click', () => {
+  if (activeIndex < circles.length - 1) {
+    activeIndex++;
+    updateUI();
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (activeIndex > 0) {
+    activeIndex--;
+    updateUI();
+  }
+});
+
+// Initial call
+updateUI();
